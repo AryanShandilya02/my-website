@@ -1,2 +1,333 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE LABEL | Modern Fashion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+            .explore-btn {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .explore-btn:hover {
+      transform: scale(1.2);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+      filter: brightness(1.2);
+      background: linear-gradient(135deg, #feb47b, #ff7e5f);
+    }
+    header a {
+  color: black; /* default text color */
+  text-decoration: none;
+}
+
+header a:hover {
+  color: orange; /* text turns orange when hovered */
+}
+
+        header *:hover {
+  color: orange;
+}
+
+        /* Global Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #000;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: background-color 0.35s ease, color 0.35s ease, transform 0.25s ease, box-shadow 0.25s ease;
+            will-change: transform, box-shadow;
+        }
+
+        .cta-button:hover {
+            background: #7E3F24; /* henna */
+            color: #fff;
+            transform: translateY(-6px) scale(1.045);
+            box-shadow: 0 14px 34px rgba(0,0,0,0.28);
+        }
+
+        /* Product Grid */
+        .product-section { padding: 80px 5%; }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card { cursor: pointer; }
+        .product-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background-color: #f7f7f7;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover img { transform: scale(1.05); }
+
+        .product-info h4 { font-weight: 400; font-size: 1rem; margin-bottom: 5px; }
+        .product-info p { color: #666; font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .navbar { padding: 15px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">THE LABEL</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">Editorial</a></li>
+                <li><a href="#men">Men</a></li>
+                <li><a href="#women">Women</a></li>
+            </ul>
+        </nav>
+        <div class="utility-icons">
+            <strong>CART (0)</strong>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Autumn Issue</h1>
+            <a href="#" class="cta-button">Explore Now</a>
+        </div>
+    </section>
+
+    <section class="product-section">
+        <h2 class="section-title">Essential Pieces</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=800" alt="Coat">
+                </div>
+                <div class="product-info">
+                    <h4>Signature Overcoat</h4>
+                    <p>₹6999</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&q=80&w=800" alt="Trousers">
+                </div>
+                <div class="product-info">
+                    <h4>Studio Trouser</h4>
+                    <p>₹2199</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1614676471928-2ed0ad1061a4?auto=format&fit=crop&q=80&w=800" alt="Cardigan">
+                </div>
+                <div class="product-info">
+                    <h4>Luna Cardigan</h4>
+                    <p>₹2599</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Men Section -->
+    <section id="men" class="gender-section">
+        <h2 class="section-title">Men</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="mencoat.avif" alt="Men Jacket">
+                </div>
+                <div class="product-info">
+                    <h4>Men's Overcoat</h4>
+                    <p>₹5099</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="menshirt.webp" alt="Men Shirt">
+                </div>
+                <div class="product-info">
+                    <h4>Classic Shirt</h4>
+                    <p>₹1299</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="menpant.jpg" alt="Men Trousers">
+                </div>
+                <div class="product-info">
+                    <h4>Tailored Trousers</h4>
+                    <p>₹1899</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Women Section -->
+    <section id="women" class="gender-section">
+        <h2 class="section-title">Women</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="womencoat.webp" alt="Women Coat">
+                </div>
+                <div class="product-info">
+                    <h4>Wool Coat</h4>
+                    <p>₹3499</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="womenshirt2.webp" alt="Women Shirt">
+                </div>
+                <div class="product-info">
+                    <h4>Silk Dress</h4>
+                    <p>₹1249</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="womenpant2.jpg" alt="Women Trousers">
+                </div>
+                <div class="product-info">
+                    <h4>Cashmere Cardigan</h4>
+                    <p>₹1399</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>THE LABEL</h2>
+                <p>Modern Fashion</p>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Email: <a href="mailto:hello@thelabel.com">hello@thelabel.com</a></li>
+                    <li>Phone: <a href="tel:+911234567890">+91 12345 67890</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Shipping</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 THE LABEL</div>
+    </footer>
+
+</body>
+</html>
